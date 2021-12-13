@@ -15,6 +15,7 @@ const int LED = LED_BUILTIN;
 String server_state = "";
 
 
+
 void connectToWiFi() {
   Serial.println("Connecting to the WiFi");
   WiFi.mode(WIFI_STA);
@@ -30,6 +31,7 @@ void connectToWiFi() {
   Serial.print("IP address: ");
   Serial.println(WiFi.localIP());
 }
+
 
 
 void setupServer() {
@@ -81,11 +83,13 @@ void led() {
 }
 
 
+
 //sänd html-sida och HTTP200
 void htmlIndex() {
   String res_page = FPSTR(MAIN_page);
   www_server.send(200, "text/html", res_page);
 }
+
 
 
 void setup() {
@@ -96,6 +100,8 @@ void setup() {
   setupServer();
   delay(4000);
 }
+
+
 
 void loop() {
   www_server.handleClient();      //Listen for HTTP requests from clients  
